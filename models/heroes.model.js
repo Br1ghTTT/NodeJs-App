@@ -12,7 +12,7 @@ const Heroes = sequelize.define('heroes', {
 
     name: {
         type: Sequelize.STRING,
-        allowNull: False
+        allowNull: false
     },
 
     role: {

@@ -8,8 +8,8 @@ ENV.config({path:'./config/.env'});
 const sequelize = require('./dataBase/database');
 
 
-const headers = require('./common/headers/headers');
-require('./middlewares/error-handler');
+const headers = require('./middlewares/headers/headers');
+require('./middlewares/errorHandler/error-handler');
 app.use(headers);
 
 // const loginRoute = require('./routes/login.routes');

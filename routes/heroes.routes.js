@@ -17,3 +17,5 @@ router.post('/create-hero', createHero);
 router.put('/update-hero', updateHero); // need to create main route 
 
 router.delete('/delete-hero', deleteHero);
+
+module.exports = router;

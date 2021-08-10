@@ -1,19 +1,28 @@
 {
   "name": "simple-server",
   "version": "1.0.0",
-  "description": "Just simple server",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
-  },
-  "author": "Yura Horbachov",
-  "license": "ISC",
+  "description": "node js server",
+  "main": "app.js",
   "dependencies": {
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.9",
     "sequelize": "^6.6.5"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Br1ghTTT/NodeJs-App.git"
+  },
+  "author": "Yurii Horachov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Br1ghTTT/NodeJs-App/issues"
+  },
+  "homepage": "https://github.com/Br1ghTTT/NodeJs-App#readme"
 }

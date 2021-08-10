@@ -1,13 +1,13 @@
 const express = require('express');
 
-const router = express.Router();
+const app = module.exports = express();
 
 const heroesRouter = require('./heroes.routes');
 const loginRouter = require('./login.routes');
 const challengeRoute = require('./challenge.routes');
 
-router.use('/app', heroesRouter, loginRouter, challengeRoute);
+app.use('/app', heroesRouter, loginRouter, challengeRoute);
 
 // router.use('/app', loginRouter);
 
-module.exports = router;
+module.exports = app;
