@@ -1,3 +1,11 @@
 {
-    
+    "InternalServerError": {
+        "message": "Internal Server Error!",
+        "statusCode": 500
+    },
+
+    "HeroesNotFound": {
+        "message": "Heroes not found!",
+        "statusCode": 406
+    }
 }

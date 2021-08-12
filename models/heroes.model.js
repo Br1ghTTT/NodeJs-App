@@ -94,6 +94,35 @@ const Heroes = sequelize.define('heroes', {
         type: Sequelize.BOOLEAN,
         allowNull: true 
     },
+    manaCost_of_first_skill: {   // need to be random damage, witch randomize on backend
+        type: Sequelize.BOOLEAN,
+        allowNull: true
+    },
+
+    manaCost_of_second_skill: {   // need to be random damage, witch randomize on backend
+        type: Sequelize.BOOLEAN,
+        allowNull: true 
+    },
+
+    manaCost_of_third_skill: {   // need to be random damage, witch randomize on backend
+        type: Sequelize.BOOLEAN,
+        allowNull: true 
+    },
+
+    manaCost_of_forth_skill: {   // need to be random damage, witch randomize on backend
+        type: Sequelize.BOOLEAN,
+        allowNull: true 
+    },
+
+    manaCost_of_fifth_skill: {   // need to be random damage, witch randomize on backend
+        type: Sequelize.BOOLEAN,
+        allowNull: true 
+    },
+    
+    manaCost_of_sixth_skill: {   // need to be random damage, witch randomize on backend
+        type: Sequelize.BOOLEAN,
+        allowNull: true 
+    },
 });
 
 module.exports = Heroes;
