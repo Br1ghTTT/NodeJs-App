@@ -1,6 +1,6 @@
 class ServerError extends Error {
-    // or {message, statusCode}
-    constructor(message, statusCode) {
+    // need to add object to prevent input like this : ServerError: [object Object]
+    constructor({message, statusCode}) {
         super(message, statusCode);
         this.message = message;
         this.statusCode = statusCode;

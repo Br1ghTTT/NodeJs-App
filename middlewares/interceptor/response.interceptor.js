@@ -1,5 +1,4 @@
-
-const responseInterceptor = (method) => {
+module.exports =  (method) => {
     return async (req, res, next) => {
         try {
             const result = await method (req, res);
@@ -14,5 +13,3 @@ const responseInterceptor = (method) => {
         }
     }
 }
-
-module.exports = responseInterceptor;

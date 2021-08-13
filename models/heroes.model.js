@@ -10,6 +10,12 @@ const Heroes = sequelize.define('heroes', {
         primaryKey: true
     },
 
+    type: {
+        type: Sequelize.ENUM,
+        allowNull: false,
+        values: ['strength', 'agility', 'intelligence']
+    },
+
     name: {
         type: Sequelize.STRING,
         allowNull: false

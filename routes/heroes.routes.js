@@ -1,21 +1,57 @@
 const express = require('express');
-
 const router = express.Router();
 
-const { getHeroes, createHero, updateHero, deleteHero } = require('../controller/heroes.controller')
+const responseInterceptor = require('../middlewares/interceptor/response.interceptor');
+const { routerInterceptor } = require('../common/decorator/router.decorator'); 
 
-router.get('/get-heroes', getHeroes);
+const heroesController = require('../controller/heroes.controller')
 
-router.get('/get-strength-heroes', getHeroes);
+// router.post('/create-hero', heroesController.createHero);
 
-router.get('/get-agility-heroes', getHeroes);
+const routes = [
+    {
+        http: 'get',
+        endpoint: '/get-heroes',
+        method: heroesController.getHeroes
+    },
 
-router.get('/get-intelligence-heroes', getHeroes);
+    {
+        http: 'get',
+        endpoint: '/get-strength-heroes',
+        method: heroesController.getHeroes
+    },
 
-router.post('/create-hero', createHero);
+    {
+        http: 'get',
+        endpoint: '/get-agility-heroes',
+        method: heroesController.getHeroes
+    },
 
-router.put('/update-hero', updateHero); // need to create main route 
+    {
+        http: 'get',
+        endpoint: '/get-intelligence-heroes',
+        method: heroesController.getHeroes
+    },
 
-router.delete('/delete-hero', deleteHero);
+    {
+        http: 'post',
+        endpoint: '/create-hero',
+        method: heroesController.createHero
+    },
+
+    {
+        http: 'put',
+        endpoint: '/update-hero',
+        method: heroesController.updateHero
+    },
+
+    {
+        http: 'delete',
+        endpoint: '/delete-hero',
+        method: heroesController.deleteHero
+    }
+]
+
+routerInterceptor(router)({routes, interceptor: responseInterceptor});
 
 module.exports = router;

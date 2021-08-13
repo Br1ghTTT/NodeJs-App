@@ -7,5 +7,10 @@
     "HeroesNotFound": {
         "message": "Heroes not found!",
         "statusCode": 406
+    },
+
+    "TypeOfHero": {
+        "message": "Type of hero is incorrect!",
+        "statusCode": 422
     }
 }

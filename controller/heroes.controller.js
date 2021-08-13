@@ -1,11 +1,14 @@
 const Heroes = require('../models/heroes.model');
 const errors = require('../config/errors/errors.info.json');
+const ServerError = require('../middlewares/errorHandler/error-handler');
 
 exports.getHeroes = async (req, res, next) => {
 
 }
 
 exports.createHero = async (req, res, next) => {
+    const type = req.body.type;
+    console.log(typeof type);
     const name = req.body.name;
     const role = req.body.role;
     const health = req.body.health;
@@ -30,38 +33,49 @@ exports.createHero = async (req, res, next) => {
     const manaCostOfFifthSkill = req.body.damageOfFifthSkill;
     const manaCostOfSixthSkill = req.body.damageOfSixthSkill;
 
-    try {
-        const heroes = new Heroes({
-            name: name,
-            role: role,
-            health: health,
-            mana: mana,
-            name_of_first_Skill: nameOfFirstSkill,
-            name_of_second_Skill: nameOfSecondSkill,
-            name_of_third_Skill: nameOfThirdSkill,
-            name_of_fourth_Skill: nameOfFourthSkill,
-            name_of_fifth_Skill: nameOfFifthSkill,
-            name_of_sixth_Skill: nameOfSixthSkill,
-            damage: damage,
-            damage_from_first_skill: damageFromFirstSkill,
-            damage_from_second_skill: damageFromSecondSkill,
-            damage_from_third_skill: damageFromThirdSkill,
-            damage_from_fourth_skill: damageFromFourthSkill,
-            damage_from_fifth_skill: damageFromFifthSkill,
-            damage_from_sixth_skill: damageFromSixthSkill,
-            manaCost_of_first_skill: manaCostOfFirstSkill,
-            manaCost_of_second_skill: manaCostOfSecondSkill,
-            manaCost_of_third_skill: manaCostOfThirdSkill,
-            manaCost_of_fourth_skill: manaCostOfFourthSkill,
-            manaCost_of_fifth_skill: manaCostOfFifthSkill,
-            manaCost_of_sixth_skill: manaCostOfSixthSkill
-        });
+    // console.log(typeOFHero === 'strengthHeroes')
 
-        if(!heroes) {
-            throw new ServerError(errors.HeroesNotFound);
-        }
+    if( type === 'strength' || type === 'agility' || type === 'intelligence' ) {
+        throw new ServerError(errors.TypeOfHero);
+    }
+
+    const heroes = new Heroes({
+        type: type,
+        name: name,
+        role: role,
+        health: health,
+        mana: mana,
+        name_of_first_Skill: nameOfFirstSkill,
+        name_of_second_Skill: nameOfSecondSkill,
+        name_of_third_Skill: nameOfThirdSkill,
+        name_of_fourth_Skill: nameOfFourthSkill,
+        name_of_fifth_Skill: nameOfFifthSkill,
+        name_of_sixth_Skill: nameOfSixthSkill,
+        damage: damage,
+        damage_from_first_skill: damageFromFirstSkill,
+        damage_from_second_skill: damageFromSecondSkill,
+        damage_from_third_skill: damageFromThirdSkill,
+        damage_from_fourth_skill: damageFromFourthSkill,
+        damage_from_fifth_skill: damageFromFifthSkill,
+        damage_from_sixth_skill: damageFromSixthSkill,
+        manaCost_of_first_skill: manaCostOfFirstSkill,
+        manaCost_of_second_skill: manaCostOfSecondSkill,
+        manaCost_of_third_skill: manaCostOfThirdSkill,
+        manaCost_of_fourth_skill: manaCostOfFourthSkill,
+        manaCost_of_fifth_skill: manaCostOfFifthSkill,
+        manaCost_of_sixth_skill: manaCostOfSixthSkill
+    });
+
+    if(!heroes) {
+        throw new ServerError(errors.HeroesNotFound);
+    }
+
+    try {
+        
 
         await heroes.save();
+
+        return heroes;
 
     } catch (err) {
         throw new ServerError(errors.InternalServerError);

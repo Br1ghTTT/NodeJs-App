@@ -1,11 +1,28 @@
 const express = require('express');
-
 const router = express.Router();
+
+const responseInterceptor = require('../middlewares/interceptor/response.interceptor');
+const { routerInterceptor } = require('../common/decorator/router.decorator'); 
 
 const { startFight, resultOfFight } = require('../controller/challenge.controller.');
 
-router.get('/fight', startFight);
+const routes = [
+    {
+        http: 'get',
+        endpoint: '/fight',
+        method: startFight
+    },
+    {
+        http: 'get',
+        endpoint: '/result-of-fights',
+        method: resultOfFight
+    }
+]
 
-router.get('result-of-fights', resultOfFight);
+// router.get('/fight', startFight);
+
+// router.get('/result-of-fights', resultOfFight);
+
+routerInterceptor(router)({routes, interceptor: responseInterceptor});
 
 module.exports = router;
