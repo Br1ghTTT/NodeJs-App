@@ -14,4 +14,6 @@ const Challenge = sequelize.define('challenge', {
         type: Sequelize.STRING,
         allowNull: false
     }
-})
+});
+
+module.exports = Challenge;
