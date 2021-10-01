@@ -28,10 +28,6 @@ const routes = [
 
 ]
 
-// router.post('/', login);
-
-// router.post('/signUp', signUp);
-
-// router.post('/logout', logout)
+routerInterceptor(router)({routes, interceptor: responseInterceptor});
 
 module.exports = router;

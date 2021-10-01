@@ -6,6 +6,10 @@ exports.getHeroes = async (req, res, next) => {
 
 }
 
+exports.getHero = async (req, res, next) => {
+    
+}
+
 exports.createHero = async (req, res, next) => {
     const type = req.body.type;
     console.log(typeof type);

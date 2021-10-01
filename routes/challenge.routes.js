@@ -19,10 +19,6 @@ const routes = [
     }
 ]
 
-// router.get('/fight', startFight);
-
-// router.get('/result-of-fights', resultOfFight);
-
 routerInterceptor(router)({routes, interceptor: responseInterceptor});
 
 module.exports = router;
